@@ -27,6 +27,7 @@ def do_recursively_on_folders(dir_path, action):
     folders = [folder for folder in dir_path.iterdir() if folder.is_dir()]
     for folder in folders:
         action(folder)
+    print('FINISHED PROCESSING! :-)')
 
 if (len(argv) < 2):
     raise Exception('Please specify a path')
