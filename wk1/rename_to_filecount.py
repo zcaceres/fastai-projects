@@ -20,5 +20,5 @@ def recursive_rename(dir_path):
         print('Renaming:', folder.name)
         rename_files(root_path/f'{folder.name}', folder.name)
 
-root_path = argv[1] if len(argv) > 1 else Path('.')
+root_path = Path(argv[1]) if len(argv) > 1 else Path('.')
 recursive_rename(root_path)
