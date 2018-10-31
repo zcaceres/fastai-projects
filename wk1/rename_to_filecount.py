@@ -10,7 +10,7 @@ from sys import argv
 def rename_files(folder_path, folder_name):
     files = [file for file in folder_path.iterdir() if file.is_file() and ("mid" in file.name)]
     for (x, file) in enumerate(files):
-        print('Renaming', file, 'number', x)
+        print('Renaming', file)
         file.rename(f'{folder_path}/{folder_name}_{x}.mid')
     print('Done')
 
