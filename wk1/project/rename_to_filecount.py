@@ -4,9 +4,7 @@ from pathlib import Path
 from sys import argv
 
 # Recursive Renaming!
-# Converts all files in a directory to the format [foldername]_[filenumber]
-# WARNING! By default, operates on root directory. Otherwise pass in a folder name
-# as first argv.
+# Converts all files in specified directory to format [foldername]_[filenumber]
 def rename_files(folder_path, folder_name):
     files = [file for file in folder_path.iterdir() if file.is_file() and ("mid" in file.name)]
     for (x, file) in enumerate(files):
@@ -20,5 +18,7 @@ def recursive_rename(dir_path):
         print('Renaming:', folder.name)
         rename_files(root_path/f'{folder.name}', folder.name)
 
-root_path = Path(argv[1]) if len(argv) > 1 else Path('.')
+if (len(argv) < 2):
+    raise Exception('Please specify a path')
+path = Path(argv[1])
 recursive_rename(root_path)
