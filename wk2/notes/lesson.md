@@ -13,7 +13,6 @@ What we'll learn:
          NLP Deep Dive
 
 # Lesson 2 Download Notebook
-
 Random seed whenever we do a random number of elements into an ImageBunch.
 
 ## Learning Rate
