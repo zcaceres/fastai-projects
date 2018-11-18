@@ -7,7 +7,7 @@ You've processed your data and trained your model and now it's time to move it t
 
 If you've used a Python-based framework like [fastai](https://github.com/fastai/fastai) to build your model, there are several excellent solutions for deployment like [Django](https://www.djangoproject.com/) or [Starlette](https://github.com/encode/starlette). But many web devs prefer to work in NodeJS, especially if your model is only part of a broader application.
 
-My friend [Navjot](https://github.com/navjotts) pointed out that NodeJS and Python could run together on the same server if we could send [remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call) from NodeJS to Python.
+My friend [Navjot](https://github.com/navjotts) pointed out that NodeJS and Python could run together if we could send [remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call) from NodeJS to Python.
 
 I extended his shared NodeJS/Python environment into [a simple, minimal boilerplate](https://github.com/navjotts/node-python/tree/example_ml_image_classification) for a NodeJS deployment of an image classification model. The deep learning model was made with the [fastai](https://github.com/fastai/fastai) library. Although fastai and our model were built in Python, we can expose the model to users from NodeJS.
 
