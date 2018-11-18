@@ -1,4 +1,7 @@
-# Deploying a Deep Learning Image Classification Model with NodeJS, Python, and Fastai
+# Deploying a Deep Learning Image Classification Model with NodeJS,  Python, and Fastai
+
+> TL|DR: Use [this](https://github.com/navjotts/node-python/tree/example_ml_image_classification
+) to easily deploy a FastAI Python model using NodeJS.
 
 You've processed your data and trained your model and now it's time to move it to the cloud.
 
@@ -6,7 +9,7 @@ If you've used a Python-based framework like [fastai](https://github.com/fastai/
 
 My friend [Navjot](https://github.com/navjotts) pointed out that NodeJS and Python could run together on the same server if we could send [remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call) from NodeJS to Python.
 
-We extended a shared NodeJS/Python environment into [a simple, minimal boilerplate](https://github.com/zcaceres/node-python) for a NodeJS deployment of an image classification model. The deep learning model was made with the [fastai](https://github.com/fastai/fastai) library. Although fastai and our model were built in Python, we can expose the model to users from NodeJS.
+I extended his shared NodeJS/Python environment into [a simple, minimal boilerplate](https://github.com/navjotts/node-python/tree/example_ml_image_classification) for a NodeJS deployment of an image classification model. The deep learning model was made with the [fastai](https://github.com/fastai/fastai) library. Although fastai and our model were built in Python, we can expose the model to users from NodeJS.
 
 Here's how.
 
@@ -106,6 +109,6 @@ class PythonServer(object):
 
 You can use the boilerplate out of the box. The included model classifies black bears, teddy bears, and grizzly bears.
 
-If you'd like to use the boilerplate for your own project, you can customize the model with instructions available on [Github](https://github.com/zcaceres/node-python).
+If you'd like to use the boilerplate for your own project, you can customize the model with instructions available on [Github](https://github.com/navjotts/node-python/tree/example_ml_image_classification).
 
 Thanks for reading!
