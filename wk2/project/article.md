@@ -4,9 +4,9 @@ You've processed your data and trained your model and now it's time to move it t
 
 If you've used a Python-based framework like [fastai](https://github.com/fastai/fastai) to build your model, there are several excellent solutions for deployment like [Django](https://www.djangoproject.com/) or [Starlette](https://github.com/encode/starlette). But many web devs prefer to work in NodeJS, especially if your model is only part of a broader application.
 
-My friend [Navjott](https://github.com/navjotts) pointed out that NodeJS and Python could run together on the same server if we could send [remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call) from NodeJS to Python.
+My friend [Navjot](https://github.com/navjotts) pointed out that NodeJS and Python could run together on the same server if we could send [remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call) from NodeJS to Python.
 
-I extended Navjott's environment into [a simple, minimal boilerplate](https://github.com/zcaceres/node-python) for a NodeJS deployment of an image classification model. The deep learning model was made with the [fastai](https://github.com/fastai/fastai) library. Although fastai and our model were built in Python, we can expose the model to users from NodeJS.
+We extended a shared NodeJS/Python environment into [a simple, minimal boilerplate](https://github.com/zcaceres/node-python) for a NodeJS deployment of an image classification model. The deep learning model was made with the [fastai](https://github.com/fastai/fastai) library. Although fastai and our model were built in Python, we can expose the model to users from NodeJS.
 
 Here's how.
 
@@ -24,8 +24,6 @@ const PythonConnector = require('./PythonConnector.js');
 Specifically, on startup `PythonConnector` spawns a python3 process that sets up our `PythonServer`. It also negotiates and maintains a socket connection to `PythonServer` through [zerorpc](https://www.zerorpc.io/).
 
 ```py
-...
-
 class PythonConnector {
     static server() {
         if (!PythonConnector.connected) {
@@ -43,15 +41,17 @@ class PythonConnector {
         }
         return PythonConnector.zerorpc;
     }
-    ...
+  ...
 }
 ```
 
-When the client hits a given endpoint from our `server.js`, such as `/predict`, our Express server commands the `PythonConnector` middleman to invoke a function in our Python environment via zerorpc.
+When the client makes a request to a given endpoint from our `server.js`, such as `/predict`, our Express server commands the `PythonConnector` middleman to invoke a function in our Python environment via zerorpc.
 
 Our Python environment returns some JSON, which can be processed and forwarded along to our client.
 
-Here's how that looks when a user sends an image for classification. First our server gets the request...
+Here's how that looks when a user sends an image for classification.
+
+First our server gets the request...
 
 ```js
 ...
