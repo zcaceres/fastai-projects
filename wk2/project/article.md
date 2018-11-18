@@ -101,10 +101,12 @@ static async invoke(method, ...args) {
 from model_fastai import FastaiImageClassifier
 
 class PythonServer(object):
+    def listen(self):
+        print(f'Python Server started listening on {PORT} ...')
+
     def predict_from_img(self, img_path):
         model = FastaiImageClassifier()
         return model.predict(img_path)
-...
 ```
 
 You can use the boilerplate out of the box. The included model classifies black bears, teddy bears, and grizzly bears.
