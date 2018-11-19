@@ -149,3 +149,13 @@ This is essentially it!
 
 Images get optimized using convolution.
 Text/language models get optimized using RNN (recurrent).
+
+> If you can get to the point where you can run show_batch you're doing ok!
+
+> __repr__ defines how an object is printed
+
+> collate function is... the function that organizes data into a batch
+
+> __dict__ tells me what's inside the object
+
+> One Hot Encoding: a list of 1, 0 representing all classes 0 if class is off 1 if class is on
