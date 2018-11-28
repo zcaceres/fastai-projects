@@ -99,7 +99,7 @@ For `learn.recorder.plot_losses()`
 You want to see a shape that goes up at first and then declines.
 
 > Mixed Precision Training:
-If you're running out of data a lot, you can convert from double precision numbers to single precision `.to_fp16()`!
+If you're running out of memory a lot, you can convert from double precision numbers to single precision `.to_fp16()`!
 
 Funny enough, .to_fp16(), actually improved the performance. Why?
 
